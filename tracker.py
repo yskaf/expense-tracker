@@ -1,4 +1,4 @@
-# . . Installment 2 . .
+# . . Installment 3 . .
 print("=" * 40)
 print("\tEXPENSE TRACKER")
 print("\tKnow where your money goes.")
@@ -16,20 +16,35 @@ print("[4] Exit\t\t\t(coming soon)\n")
 name = input("\nWhat's your name? ")
 print(f"Welcome, {name}! Let's log two expenses.")
 
+subtotal =0 
 item1 = input("\nFirst expense? ")
 amount1 = float(input("Amount? "))
+subtotal += amount1
+
 
 item2 = input("Second expense? ")
 amount2 = float(input("Amount? "))
+subtotal += amount2
 
 total = amount1 + amount2
 average = total / 2
+tax_percent = int(input("Tax rate %? "))
+tax = subtotal * (tax_percent / 100)
+total = subtotal + tax
+budget = float(input("Your budget? "))
+over_budget = total > budget
+left = budget - total
 
 print("\n" + "-" * 40)
 print("SUMMARY")
 print("  - " + f"{item1}:\t${amount1}")
 print("  - " + f"{item2}:\t${amount2}")
-print(f"Total spent:\t${total}")
+
+print(f"Subtotal:\t${subtotal}")
 print(f"Average:\t${average}")
+print(f"Tax ({tax_percent}.0%):\t${tax}")
+print(f"Grand total:\t${total}")
+print(f"Over budget?\t{over_budget}")
+print(f"Left in budget:\t${left}")
 print("-" * 40)
-print("Made by: Jenalyn Myka Ferrer | Installment 2")
+print("Made by: Jenalyn Myka Ferrer | Installment 3")
